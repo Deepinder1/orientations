@@ -25,31 +25,32 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  //creating widgets for orientation
+  Widget portaiat() {
+    return Center(
+      child: Text('Potrait'),
+    );
+  }
+
+  Widget landscape() {
+    return Center(
+      child: Text('Landscape'),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('MediaQuery'),
+        title: Text('Orientation'),
       ),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: MediaQuery.of(context).size.width * 0.4,
-            height: MediaQuery.of(context).size.height * 0.5,
-            decoration: BoxDecoration(
-              color: Colors.red,
-            ),
-          ),
-          Container(
-            width: MediaQuery.of(context).size.width * 0.1,
-            decoration: BoxDecoration(
-              color: Colors.blue,
-            ),
-          ),
-        ],
-      ),
+      body: OrientationBuilder(builder: (context, orientation) {
+        if (orientation == Orientation.portrait) {
+          return portaiat();
+        } else {
+          return landscape();
+        }
+      }),
     );
   }
 }
