@@ -1,7 +1,6 @@
 # orientation
 
-A new Flutter project.
-
+The Device orientation in both rotating mode
 ## Getting Started
 
 This project is a starting point for a Flutter application.
